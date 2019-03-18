@@ -1,3 +1,20 @@
+<MenuScreen>:
+    BoxLayout:
+    Button:
+        text:'Seuraava'
+        on_press: root_manager.current = 'next'
+        Button:
+            text: 'Lopeta'
+
+<SauraavaSivu>:
+    BoxLayout:
+        Button:
+            text:'Seuraava nappula'
+            Button:
+                text:'Takasin etusivulle'
+                on_press: root_manager.current = 'menu'
+
+
 <ScatterTextWidget>:
     orientation: 'vertical'
     TextInput:
