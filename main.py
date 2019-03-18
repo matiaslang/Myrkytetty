@@ -11,6 +11,7 @@ class ScatterTextWidget(BoxLayout):
     pass
 
 class Myrkytetty(App):
+    #TODO MUISTA TEHDÄ ASIOITA
     def build(self):
         return ScatterTextWidget()
 
