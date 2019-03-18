@@ -1,30 +1,30 @@
-<MenuScreen>:
-    BoxLayout:
-    Button:
-        text:'Seuraava'
-        on_press: root_manager.current = 'next'
-        Button:
-            text: 'Lopeta'
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+ScreenManagement:
+    transition: FadeTransition()
+    MainScreen:
+    AnotherScreen:
 
-<SauraavaSivu>:
+<MainScreen>:
+    name: 'main'
     BoxLayout:
-        Button:
-            text:'Seuraava nappula'
+        orientation: 'vertical'
+        Label:
+            text: 'TESTIÄ :)'
+        BoxLayout:
             Button:
-                text:'Takasin etusivulle'
-                on_press: root_manager.current = 'menu'
+                on_release: app.root.current = 'other'
+                text: 'Another Screen'
+                font_size: 50
+            Button:
+                size: 100,100
+                size_hint: None, 0.5
+                spacing: 0.1
+                text: 'älä paina tästä'
 
+<AnotherScreen>:
+    name: 'other'
 
-<ScatterTextWidget>:
-    orientation: 'vertical'
-    TextInput:
-        id: my_text
-        font_size: 100
-        size_hint_y: None
-        height: 200
-        text: 'Default'
-    FloatLayout:
-        Scatter:
-            Label:
-                text: my_text.text
-                font_size: 100
+    Button:
+        on_release: app.root.current = 'main'
+        text: 'back to the home screen'
+        font_size: 50

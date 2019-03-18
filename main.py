@@ -1,32 +1,20 @@
 from kivy.app import App
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 
-from kivy.uix.scatter import Scatter
-from kivy.uix.button import Button
-from kivy.uix.label import Label
-from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.textinput import TextInput
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.boxlayout import BoxLayout
-
-class MenuScreen(Screen):
+class MainScreen(Screen):
     pass
 
-class SeuraavaSivu(Screen):
+class AnotherScreen(Screen):
     pass
 
-sm = ScreenManager()
-sm.add_widget(MenuScreen(name = 'menu'))
-sm.add_widget(SeuraavaSivu(name = 'next'))
-
-
-class ScatterTextWidget(BoxLayout):
+class ScreenManagement(ScreenManager):
     pass
 
-class Myrkytetty(App):
-    #TODO MUISTA TEHDÄ ASIOITA
+presentation = Builder.load_file("Myrkytetty.kv")
+
+class MainApp(App):
     def build(self):
-        return sm
+        return presentation
 
-
-if __name__ == "__main__":
-    Myrkytetty().run()
+MainApp().run()
