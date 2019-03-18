@@ -9,17 +9,30 @@ ScreenManagement:
     BoxLayout:
         orientation: 'vertical'
         Label:
-            text: 'TESTIÄ :)'
+            text: 'M  Y  R   K   Y   T   E   T   T   Y'
+            font_size: 60
+            size_hint: 1, .35
+        Widget:
         BoxLayout:
+            padding: 50
+            spacing: 50
             Button:
-                on_release: app.root.current = 'alko'
+                on_release: app.root.current = 'other'
+                #size: 30,40
+                size_hint: .5, .9
+                on_release: app.root.current = 'other'
                 text: 'Another Screen'
-                font_size: 50
+                font_size: 10
+                #pos: (200,200)
+
             Button:
-                size: 100,100
-                size_hint: None, 0.5
+                #size: 100,100
+                size_hint: .5, .9
                 spacing: 0.1
                 text: 'älä paina tästä'
+                font_size: 10
+                #pos: (100,200)
+        Widget:
 
 <AlkometriEka>:
     name: 'alko'
