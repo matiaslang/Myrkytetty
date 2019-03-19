@@ -42,14 +42,27 @@ ScreenManagement:
             #LOLOLOLOLOLOLO
 
 <MyPopup@Popup>:
-    pos_hint:{'right':.1, 'top': .9}
+    pos_hint:{'right':.195, 'top': .405}
     size: 200, 200
     size_hint: None, None
     auto_dismiss: False
-    Button:
-        text: 'Close me!'
-        on_release: root.dismiss()
-        size_hint: .1, .1
+    title: "                 I N F O"
+    #separator_height: 0
+    BoxLayout:
+        spacing: 20
+        padding: 4
+        orientation: 'vertical'
+        Label:
+            text: '\nMyrkytetty sovelluksen \navulla pystyt \nmittaamaan kehosi\nalkoholipitoisuutta\n ja mittaamaan \nAUDIT-mittarilla \nalkoholinkäyttämistäsi'
+            ## title: 'INFO'
+            text_font: 'Arial'
+            font_size: 12
+        Button:
+            text: 'S U L J E'
+            on_release: root.dismiss()
+            size_hint: 1, .1
+
+
 
 <AlkometriEka>:
     name: 'alko'
@@ -61,7 +74,7 @@ ScreenManagement:
             font_size: 100
             #size: 600,  200
             size_hint: 1 , .7
-        Widget:
+        #Widget:
         BoxLayout:
 
 
@@ -82,10 +95,3 @@ ScreenManagement:
                 on_release: Factory.MyPopup().open()
 
 
-<MyPopup@Popup>:
-    auto_dismiss: False
-    size_hint: None, None
-    size: 400, 400
-    Button:
-        text: 'Close me!'
-        on_release: root.dismiss()
