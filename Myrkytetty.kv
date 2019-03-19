@@ -37,33 +37,38 @@ ScreenManagement:
 
 <AlkometriEka>:
     name: 'alko'
+    background_color: 0,0,0
     BoxLayout:
         orientation: 'vertical'
         padding: 100
         Label:
             text: 'ALKOMETRI'
             font_size: 100
-            #size: 600,  200
             size_hint: 1 , .7
-        Widget:
+        Label:
+            size_hint: .25, 1
+            text: 'Sukupuoli: '
         BoxLayout:
-
-
+            size_hint: .5, .2
+            spacing: 50
+            Button:
+                text: 'Mies'
+                on_release: root.buttonPushed()
+            Button:
+                text: 'Nainen'
         BoxLayout:
             spacing: 100
             Button:
+                size_hint: .5, .5
                 on_release: app.root.current = 'main'
-                text: 'back to the home screen'
-                source: '.kuvat/edellinen.png'
-                border: 30,30,30,30
-                color: (1, .3, .8, .5)
-            Button:
-                text: 'testinappula2'
-                on_release: Factory.MyPopup().open()
+                text: 'Alkuun'
+                background_normal: './kuvat/edellinen.png'
+                background_down: './kuvat/edellinen.png'
+                color: (0, 0, 0, 1)
+                border: (2, 2, 2, 2)
+            Widget:
+            Widget:
 
-            Button:
-                text: 'testinappula3'
-                on_release: Factory.MyPopup().open()
 
 
 <MyPopup@Popup>:
