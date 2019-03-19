@@ -17,6 +17,8 @@ class AlkometriEka(Screen):
 class ScreenManagement(ScreenManager):
     pass
 
+#class AuditMittari(ScreenManager)
+
 
 presentation = Builder.load_file("Myrkytetty.kv")
 
