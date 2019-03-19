@@ -22,18 +22,34 @@ ScreenManagement:
                 #size: 30,40
                 size_hint: .5, .9
                 on_release: app.root.current = 'alko'
-                text: 'Another Screen'
-                font_size: 10
+                text: 'A L K O M E T R I'
+                font_size: 30
                 #pos: (200,200)
 
             Button:
                 #size: 100,100
                 size_hint: .5, .9
                 spacing: 0.1
-                text: 'älä paina tästä'
-                font_size: 10
+                text: 'A U D I T - M I T T A R I'
+                font_size: 30
                 #pos: (100,200)
         Widget:
+        Button:
+            text: 'i'
+            font_size:30
+            on_release: Factory.MyPopup().open()
+            size_hint: .05,.3
+            #LOLOLOLOLOLOLO
+
+<MyPopup@Popup>:
+    pos_hint:{'right':.1, 'top': .9}
+    size: 200, 200
+    size_hint: None, None
+    auto_dismiss: False
+    Button:
+        text: 'Close me!'
+        on_release: root.dismiss()
+        size_hint: .1, .1
 
 <AlkometriEka>:
     name: 'alko'
