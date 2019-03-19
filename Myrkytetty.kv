@@ -12,7 +12,7 @@ ScreenManagement:
         orientation: 'vertical'
         Label:
             text: 'M  Y  R   K   Y   T   E   T   T   Y'
-            font_size: 60
+            font_size: '60dp'
             size_hint: 1, .35
         Widget:
         BoxLayout:
@@ -23,7 +23,7 @@ ScreenManagement:
                 size_hint: .5, .9
                 on_release: app.root.current = 'alko'
                 text: 'A L K O M E T R I'
-                font_size: 30
+                font_size: '30dp'
                 #pos: (200,200)
 
             Button:
@@ -31,32 +31,32 @@ ScreenManagement:
                 size_hint: .5, .9
                 spacing: 0.1
                 text: 'A U D I T - M I T T A R I'
-                font_size: 30
+                font_size: '30dp'
                 #pos: (100,200)
         Widget:
         Button:
             text: 'i'
-            font_size:30
+            font_size:'30dp'
             on_release: Factory.MyPopup().open()
             size_hint: .05,.3
             #LOLOLOLOLOLOLO
 
 <MyPopup@Popup>:
     pos_hint:{'right':.195, 'top': .405}
-    size: 200, 200
+    size: '200dp', '200dp'
     size_hint: None, None
     auto_dismiss: False
     title: "                 I N F O"
     #separator_height: 0
     BoxLayout:
-        spacing: 20
-        padding: 4
+        spacing: '20dp'
+        padding: '4dp'
         orientation: 'vertical'
         Label:
             text: '\nMyrkytetty sovelluksen \navulla pystyt \nmittaamaan kehosi\nalkoholipitoisuutta\n ja mittaamaan \nAUDIT-mittarilla \nalkoholinkäyttämistäsi'
             ## title: 'INFO'
             text_font: 'Arial'
-            font_size: 12
+            font_size: '12dp'
         Button:
             text: 'S U L J E'
             on_release: root.dismiss()
