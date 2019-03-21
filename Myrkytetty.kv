@@ -76,26 +76,224 @@ ScreenManagement:
 
 <AlkometriEka>:
     name: 'alko'
-    background_color: 0,0,0
+    Widget:
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
     BoxLayout:
         orientation: 'vertical'
-        padding: 100
+        #padding: 100
         Label:
-            text: 'ALKOMETRI'
-            font_size: 100
-            size_hint: 1 , .7
-        Label:
-            size_hint: .25, 1
-            text: 'Sukupuoli: '
-        Widget:
+            text: 'A  L  K  O  M  E  T  R  I'
+            font_size: '60dp'
+            #size_hint: 1 , 1
+            color: 0, 0, 0, 1
+            text_size: self.size
+            valign: 'top'
+            halign: 'center'
+
+
         BoxLayout:
-            size_hint: .5, .2
-            spacing: 50
-            Button:
-                text: 'Mies'
-                on_release: root.maleButton()
-            Button:
-                text: 'Nainen'
+            #size_hint: 1, 1
+
+            BoxLayout:
+                orientation: 'vertical'
+                #size_hint: 1, 0.3
+                padding: 20, 0, 0, 0
+                Label:
+                    #size_hint: .20, None
+                    text: 'Sukupuoli: '
+                    font_size: '40dp'
+                    text_size: self.size
+                    valign: 'top'
+                    halign: 'left'
+                    color: 0, 0, 0, 1
+                BoxLayout:
+                    size_hint: .5, .1
+                    spacing: 50
+
+                    Button:
+                        id: manButton
+                        background_normal: ''
+                        background_color: 1, 1, 1, 1
+                        text: 'Mies'
+                        color: 0, 0, 0, 1
+                        on_release: root.maleButton()
+                        on_release: womanButton.state = 'normal'
+                        on_release: manButton.state = 'down'
+                        size: '70dp', '20dp'
+                        size_hint: None, None
+                        canvas:
+                            Color:
+                                rgba: 0, 0, 0, 1
+                            Line:
+                                width: 2
+                                rectangle: self.x, self.y, self.width, self.height
+                    Button:
+                        id: womanButton
+                        background_normal: ''
+                        background_color: 1, 1, 1, 1
+                        text: 'Nainen'
+                        color: 0, 0, 0, 1
+                        on_release: root.FemaleButton()
+                        on_release: womanButton.state = 'down'
+                        on_release: manButton.state = 'normal'
+                        size: '70dp', '20dp'
+                        size_hint: None, None
+                        canvas:
+                            Color:
+                                rgba: 0, 0, 0, 1
+                            Line:
+                                width: 2
+                                rectangle: self.x, self.y, self.width, self.height
+            BoxLayout:
+                size_hint: 1, 0.3
+                orientation: 'vertical'
+                Label:
+                    text: 'Kuinka monta tuntia sitten aloitit juomisen: '
+                    color: 0, 0, 0, 1
+                    size_hint: None, None
+                    text_size: root.width, None
+                    size: self.texture_size
+                    #padding: 0, 0, 5, 0
+
+                BoxLayout:
+                    spacing: 20
+                    Button:
+                        id: btn
+                        text: 'Valitse tunnit'
+                        on_parent: dropdown.dismiss()
+                        on_release: dropdown.open(self)
+                        size_hint: None, None
+                        size: '100dp', '30dp'
+                    DropDown:
+                        id: dropdown
+
+                        on_select: btn.text = '{}'.format(args[1])
+
+                        Button:
+                            text: '1'
+                            size_hint_y: None
+                            on_release: dropdown.select('1')
+
+                        Button:
+                            text: '2'
+                            size_hint_y: None
+                            on_release: dropdown.select('2')
+
+                        Button:
+                            text: '3'
+                            size_hint_y: None
+                            on_release: dropdown.select('3')
+                        Button:
+                            text: '4'
+                            size_hint_y: None
+                            on_release: dropdown.select('4')
+                        Button:
+                            text: '5'
+                            size_hint_y: None
+                            on_release: dropdown.select('5')
+                        Button:
+                            text: '6'
+                            size_hint_y: None
+                            on_release: dropdown.select('6')
+                        Button:
+                            text: '7'
+                            size_hint_y: None
+                            on_release: dropdown.select('7')
+                    Label:
+                        text: 'tuntia sitten'
+                        font_size: '20dp'
+                        size: '100dp', '50dp'
+                        size_hint: None, None
+                        color: 0, 0, 0, 1
+        BoxLayout:
+            size_hint: 1, 0.3
+            orientation: 'vertical'
+            Label:
+                text: 'Paino: '
+                color: 0, 0, 0, 1
+                size_hint: None, None
+                text_size: root.width, None
+                size: self.texture_size
+                    #padding: 0, 0, 5, 0
+
+            BoxLayout:
+                spacing: 20
+                Button:
+                    id: but
+                    text: 'lol'
+                    on_parent: dropdown.dismiss()
+                    on_release: dropdown.open(self)
+                    size_hint: None, None
+                    size: '100dp', '30dp'
+                DropDown:
+                    id: dropdwn
+
+                    on_select: but.text = '{}'.format(args[1])
+
+                    Button:
+                        text: '50'
+                        size_hint_y: None
+                        on_release: dropdown.select('50')
+
+                    Button:
+                        text: '50'
+                        size_hint_y: None
+                        on_release: dropdwn.select('50')
+
+                    Button:
+                        text: '50'
+                        size_hint_y: None
+                        on_release: dropdwn.select('50')
+
+                    Button:
+                        text: '50'
+                        size_hint_y: None
+                        on_release: dropdwn.select('50')
+
+                    Button:
+                        text: '50'
+                        size_hint_y: None
+                        on_release: dropdwn.select('50')
+
+                    Button:
+                        text: '50'
+                        size_hint_y: None
+                        on_release: dropdwn.select('50')
+
+                    Button:
+                        text: '50'
+                        size_hint_y: None
+                        on_release: dropdwn.select('50')
+
+                    Button:
+                        text: '50'
+                        size_hint_y: None
+                        on_release: dropdwn.select('50')
+
+                    Button:
+                        text: '50'
+                        size_hint_y: None
+                        on_release: dropdown2.select('50')
+
+                    Button:
+                        text: '50'
+                        size_hint_y: None
+                        on_release: dropdown2.select('50')
+
+
+
+                Label:
+                    text: 'KG'
+                    font_size: '20dp'
+                    size: '100dp', '50dp'
+                    size_hint: None, None
+                    color: 0, 0, 0, 1
+
         BoxLayout:
             spacing: 100
             Button:

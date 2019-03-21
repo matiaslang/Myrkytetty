@@ -10,6 +10,23 @@ Config.set('graphics', 'height', '600')
 mies = False
 nainen = False
 
+class CalcClass():
+    gender = ""
+    age = 0
+
+    def __init__(self):
+        self.gender = " "
+        self.age = 0
+
+    def MaleButton(self):
+        self.gender = "male"
+
+    def FemaleButton(self):
+        self.gender = "female"
+
+    def TulostaTulos(self):
+        print("SUKUPUOLENA ON ", self.gender)
+
 class MainScreen(Screen):
     pass
 
@@ -20,9 +37,17 @@ class AlkometriEka(Screen):
     def __init__(self, **kwargs):
         super(Screen, self).__init__(**kwargs)
 
+    def FemaleButton(self):
+        CalcClass.FemaleButton(self)
+        print("Naista on painettu")
+
     def maleButton(self):
-        mies = True
+        CalcClass.MaleButton(self)
         print("MIESTÄ ON PAINETTU")
+
+    def tulostus(self):
+        CalcClass.TulostaTulos(self)
+
     pass
 
 class ScreenManagement(ScreenManager):
