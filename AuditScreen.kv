@@ -1,0 +1,38 @@
+<AuditMittari>:
+    name: 'audit'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'A U D I T - M I T T A R I'
+            font_size: 40
+            size_hint: 1, .35
+        BoxLayout:
+            #orientation: 'vertical'
+            spacing: 100
+
+            Button:
+                #size_hint: .5, .5
+                on_release: app.root.current = 'main'
+                text: 'Alkuun'
+                background_normal: './kuvat/edellinen2-03.png'
+                background_down: './kuvat/edellinen2-03.png'
+                color: (0, 0, 0, 1)
+                border: (2, 2, 2, 2)
+            Widget:
+            Widget:
+            Button:
+                #size_hint: .5, .5
+                id: NextButton
+                #on_release: root.tulostus()
+                text: 'Täytä tiedot jatkaaksesi' if self.disabled else "Seuraava"
+                disabled: True
+                #opacity: 0.1 if self.disabled else 1
+                background_disabled_normal: './kuvat/seuraava-02.png'
+                background_normal: './kuvat/seuraava-02.png'
+                background_down: './kuvat/seuraava-02.png'
+                color: (0, 0, 0, 1)
+                border: (2, 2, 2, 2)
+
+
+
+

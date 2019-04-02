@@ -7,16 +7,21 @@ from kivy.uix.button import Button
 
 Config.set('graphics', 'width', '1000')
 Config.set('graphics', 'height', '600')
-mies = False
-nainen = False
+
+Builder.load_file('./AuditScreen.kv')
+Builder.load_file('./AlcometerScreen1.kv')
 
 class CalcClass():
-    gender = ""
+    gender = " "
     age = 0
+    hoursSince = 0
+    weightOf = 0
 
     def __init__(self):
-        self.gender = " "
-        self.age = 0
+        self.gender = "N/A"
+        #self.age = 0
+        self.hoursSince = 999
+        self.weightOf = 0
 
     def MaleButton(self):
         self.gender = "male"
@@ -24,36 +29,64 @@ class CalcClass():
     def FemaleButton(self):
         self.gender = "female"
 
+    def hoursStarted(self, hours):
+        self.hoursSince = hours
+
+    def weightInit(self, newWeight):
+        self.weightOf = newWeight
+
     def TulostaTulos(self):
-        print("SUKUPUOLENA ON ", self.gender)
+        print("SUKUPUOLENA ON {}\nALOITETTU ON {} tuntia sitten\nPainosi on {} kiloa".format(self.gender, self.hoursSince, self.weightOf))
+
+
+    def firsScreenReady(self):
+        if(self.gender != "N/A"  and self.hoursSince != 999 and self.weightOf != 0):
+            return True
+        else:
+            return False
 
 class MainScreen(Screen):
     pass
 
+
 class AlkometriEka(Screen):
-    mies = False
-    nainen = False
+
 
     def __init__(self, **kwargs):
         super(Screen, self).__init__(**kwargs)
+        CalcClass.__init__(self)
 
     def FemaleButton(self):
         CalcClass.FemaleButton(self)
-        print("Naista on painettu")
+        if (CalcClass.firsScreenReady(self)):
+            self.ids.NextButton.disabled = False
 
     def maleButton(self):
         CalcClass.MaleButton(self)
-        print("MIESTÄ ON PAINETTU")
+        if (CalcClass.firsScreenReady(self)):
+            self.ids.NextButton.disabled = False
+
+    def hours(self, number):
+        CalcClass.hoursStarted(self, number)
+        if(CalcClass.firsScreenReady(self)):
+            self.ids.NextButton.disabled = False
+
+    def weight(self, weightNumber):
+        if (CalcClass.firsScreenReady(self)):
+            self.ids.NextButton.disabled = False
+        CalcClass.weightInit(self, weightNumber)
 
     def tulostus(self):
         CalcClass.TulostaTulos(self)
+
 
     pass
 
 class ScreenManagement(ScreenManager):
     pass
 
-#class AuditMittari(ScreenManager)
+class AuditMittari(Screen):
+    pass
 
 
 presentation = Builder.load_file("Myrkytetty.kv")
