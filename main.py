@@ -97,4 +97,7 @@ class MainApp(App):
     def build(self):
         return presentation
 
-MainApp().run()
+#MainApp().run()
+
+if __name__ == "__main__":
+    MainApp().run()
