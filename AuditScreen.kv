@@ -13,7 +13,8 @@
             text: 'A U D I T - M I T T A R I'
             font_size: '40dp'
             color: 0, 0, 0, 1
-            size_hint: 1, .35
+            size_hint: 1, .2
+
         BoxLayout:
             orientation: 'vertical'
             BoxLayout:
@@ -22,16 +23,17 @@
                     color: 0, 0, 0, 1
                     text_size: self.size
                     #size: self.texture_size
-                    padding: 30, 30
-                    valign: 'top'
+
+                    padding: 30, 0
+                    valign: 'middle'
                     halign: 'left'
                 Label:
-                    text: '1. Kuinka usein juot olutta, viiniä tai muita alkoholijuomia?\n Ota mukaan myös ne kerrat, jolloin nautit vain pieniä määriä,\n esim. pullon keskiolutta tai tilkan viiniä'
+                    text: '2. Kuinka monta annosta alkoholia yleensä olet ottanut niinä päivinä, jolloin käytit alkoholia?'
                     color: 0, 0, 0, 1
                     text_size: self.size
                     #size: self.texture_size
-                    padding: 30, 30
-                    valign: 'top'
+                    padding: 30, 0
+                    valign: 'middle'
                     halign: 'left'
 
             BoxLayout:
@@ -51,7 +53,7 @@
                         #valign: 'middle'
                         color: 0, 0, 0, 1
                     CheckBox:
-                        group: 'often'
+                        group: '1'
                         id : chk_male
                     Label:
                         text: 'Noin kerran kuussa tai harvemmin'
@@ -59,7 +61,7 @@
                         valign: 'middle'
                         color: 0, 0, 0, 1
                     CheckBox:
-                        group: 'often'
+                        group: '1'
                         id: chk_female
                     Label:
                         text: '2-4 kertaa kuussa'
@@ -67,7 +69,7 @@
                         valign: 'middle'
                         color: 0, 0, 0, 1
                     CheckBox:
-                        group: 'often'
+                        group: '1'
                         id: chk_female
                     Label:
                         text: '2-3 kertaa viikossa'
@@ -75,7 +77,7 @@
                         valign: 'middle'
                         color: 0, 0, 0, 1
                     CheckBox:
-                        group: 'often'
+                        group: '1'
                         id: chk_female
                     Label:
                         text: '4 kertaa viikossa tai useammin'
@@ -83,7 +85,7 @@
                         valign: 'middle'
                         color: 0, 0, 0, 1
                     CheckBox:
-                        group: 'often'
+                        group: '1'
                         id: chk_female
                 GridLayout:
                     cols: 2
@@ -96,106 +98,171 @@
                     #size_hint: 0.5 , None
 
                     Label:
-                        text: 'En koskaan'
+                        text: '1-2 annosta'
                         text_size: self.size
                         #valign: 'middle'
                         color: 0, 0, 0, 1
                     CheckBox:
-                        group: 'often'
+                        group: '2'
                         id : chk_male
                     Label:
-                        text: 'Noin kerran kuussa tai harvemmin'
+                        text: '3-4 annosta'
                         text_size: self.size
                         valign: 'middle'
                         color: 0, 0, 0, 1
                     CheckBox:
-                        group: 'often'
+                        group: '2'
                         id: chk_female
                     Label:
-                        text: '2-4 kertaa kuussa'
+                        text: '5-6 annosta'
                         text_size: self.size
                         valign: 'middle'
                         color: 0, 0, 0, 1
                     CheckBox:
-                        group: 'often'
+                        group: '2'
                         id: chk_female
                     Label:
-                        text: '2-3 kertaa viikossa'
+                        text: '7-9 annosta'
                         text_size: self.size
                         valign: 'middle'
                         color: 0, 0, 0, 1
                     CheckBox:
-                        group: 'often'
+                        group: '2'
                         id: chk_female
                     Label:
-                        text: '4 kertaa viikossa tai useammin'
+                        text: '10 tai enemmän'
                         text_size: self.size
                         valign: 'middle'
                         color: 0, 0, 0, 1
                     CheckBox:
-                        group: 'often'
+                        group: '2'
                         id: chk_female
             BoxLayout:
-                Label:
-                    text: '1. Kuinka usein juot olutta, viiniä tai muita alkoholijuomia? Ota mukaan myös ne kerrat, jolloin nautit vain pieniä määriä, esim. pullon keskiolutta tai tilkan viiniä'
-                    color: 0, 0, 0, 1
-                    text_size: self.size
-                    size: self.texture_size
-                    padding: 30, 50
-                    valign: 'top'
-                    halign: 'left'
-                Widget:
+                orientation: 'vertical'
+                BoxLayout:
+                    Label:
+                        text: '1. Kuinka usein juot olutta, viiniä tai muita alkoholijuomia? Ota mukaan myös ne kerrat, jolloin nautit vain pieniä määriä, esim. pullon keskiolutta tai tilkan viiniä'
+                        color: 0, 0, 0, 1
+                        text_size: self.size
+                        #size: self.texture_size
+                        padding: 30, 30
+                        valign: 'top'
+                        halign: 'left'
+                    Label:
+                        text: '2. Kuinka monta annosta alkoholia yleensä olet ottanut niinä päivinä, jolloin käytit alkoholia?'
+                        color: 0, 0, 0, 1
+                        text_size: self.size
+                        #size: self.texture_size
+                        padding: 30, 30
+                        valign: 'top'
+                        halign: 'left'
 
-            GridLayout:
-                cols: 2
-                rows: 5
-                padding : 30,0
-                #spacing:
-                col_default_width: '230dp'
-                col_force_default: True
-                row_default_height: '20dp'
-                #size_hint: 0.5 , None
+                BoxLayout:
 
-                Label:
-                    text: 'En koskaan'
-                    text_size: self.size
-                    #valign: 'middle'
-                    color: 0, 0, 0, 1
-                CheckBox:
-                    group: 'check'
-                    id : chk_male
-                Label:
-                    text: 'Noin kerran kuussa tai harvemmin'
-                    text_size: self.size
-                    valign: 'middle'
-                    color: 0, 0, 0, 1
-                CheckBox:
-                    group: 'check'
-                    id: chk_female
-                Label:
-                    text: '2-4 kertaa kuussa'
-                    text_size: self.size
-                    valign: 'middle'
-                    color: 0, 0, 0, 1
-                CheckBox:
-                    group: 'check'
-                    id: chk_female
-                Label:
-                    text: '2-3 kertaa viikossa'
-                    text_size: self.size
-                    valign: 'middle'
-                    color: 0, 0, 0, 1
-                CheckBox:
-                    group: 'check'
-                    id: chk_female
-                Label:
-                    text: '4 kertaa viikossa tai useammin'
-                    text_size: self.size
-                    valign: 'middle'
-                    color: 0, 0, 0, 1
-                CheckBox:
-                    group: 'check'
-                    id: chk_female
+                    GridLayout:
+                        cols: 2
+                        rows: 5
+                        padding : 30,0
+                        #spacing:
+                        col_default_width: '230dp'
+                        col_force_default: True
+                        row_default_height: '20dp'
+                        #size_hint: 0.5 , None
+
+                        Label:
+                            text: 'En koskaan'
+                            text_size: self.size
+                            #valign: 'middle'
+                            color: 0, 0, 0, 1
+                        CheckBox:
+                            group: 'check'
+                            id : chk_male
+                        Label:
+                            text: 'Noin kerran kuussa tai harvemmin'
+                            text_size: self.size
+                            valign: 'middle'
+                            color: 0, 0, 0, 1
+                        CheckBox:
+                            group: 'check'
+                            id: chk_female
+                        Label:
+                            text: '2-4 kertaa kuussa'
+                            text_size: self.size
+                            valign: 'middle'
+                            color: 0, 0, 0, 1
+                        CheckBox:
+                            group: 'check'
+                            id: chk_female
+                        Label:
+                            text: '2-3 kertaa viikossa'
+                            text_size: self.size
+                            valign: 'middle'
+                            color: 0, 0, 0, 1
+                        CheckBox:
+                            group: 'check'
+                            id: chk_female
+                        Label:
+                            text: '4 kertaa viikossa tai useammin'
+                            text_size: self.size
+                            valign: 'middle'
+                            color: 0, 0, 0, 1
+                        CheckBox:
+                            group: 'check'
+                            id: chk_female
+
+
+
+                    GridLayout:
+                        cols: 2
+                        rows: 5
+                        padding : 30,0
+                        #spacing:
+                        col_default_width: '230dp'
+                        col_force_default: True
+                        row_default_height: '20dp'
+                        #size_hint: 0.5 , None
+
+                        Label:
+                            text: 'En koskaan'
+                            text_size: self.size
+                            #valign: 'middle'
+                            color: 0, 0, 0, 1
+                        CheckBox:
+                            group: 'check'
+                            id : chk_male
+                        Label:
+                            text: 'Noin kerran kuussa tai harvemmin'
+                            text_size: self.size
+                            valign: 'middle'
+                            color: 0, 0, 0, 1
+                        CheckBox:
+                            group: 'check'
+                            id: chk_female
+                        Label:
+                            text: '2-4 kertaa kuussa'
+                            text_size: self.size
+                            valign: 'middle'
+                            color: 0, 0, 0, 1
+                        CheckBox:
+                            group: 'check'
+                            id: chk_female
+                        Label:
+                            text: '2-3 kertaa viikossa'
+                            text_size: self.size
+                            valign: 'middle'
+                            color: 0, 0, 0, 1
+                        CheckBox:
+                            group: 'check'
+                            id: chk_female
+                        Label:
+                            text: '4 kertaa viikossa tai useammin'
+                            text_size: self.size
+                            valign: 'middle'
+                            color: 0, 0, 0, 1
+                        CheckBox:
+                            group: 'check'
+                            id: chk_female
+
 
 
 
@@ -206,7 +273,7 @@
             #orientation: 'vertical'
             spacing: 100
             size_hint: 1, 0.3
-            padding: 50, 10, 4, 21
+            padding: 0, 100, 0, 5
 
             Button:
                 #size_hint: .5, .5

@@ -6,6 +6,8 @@ ScreenManagement:
     MainScreen:
     AlkometriEka:
     AuditMittari:
+    chooseDrinks:
+    ReportScreen:
 
 <MainScreen>:
     name: 'main'
@@ -32,7 +34,7 @@ ScreenManagement:
                 size_hint: .5, .9
                 spacing: 0.1
                 text: 'A U D I T - M I T T A R I'
-                on_release: app.root.current = 'audit'
+                on_release: Factory.Error().open()
                 font_size: '30dp'
                 #pos: (100,200)
         Widget:
@@ -59,6 +61,28 @@ ScreenManagement:
             ## title: 'INFO'
             text_font: 'Arial'
             font_size: '12dp'
+        Button:
+            text: 'S U L J E'
+            on_release: root.dismiss()
+            size_hint: 1, .1
+
+<Error@Popup>:
+    #pos_hint:{'right':.195, 'top': .405}
+    size: '500dp', '500dp'
+    size_hint: None, None
+    auto_dismiss: False
+    title: "I N F O"
+    #separator_height: 0
+    BoxLayout:
+        spacing: '20dp'
+        padding: '4dp'
+        orientation: 'vertical'
+        Label:
+            text: 'Käytätkö alkoholia kohtuullisesti vai ehkä liikaa? Vastaamalla AUDIT-testin kysymyksiin saa monipuolisen kuvan juomiseen mahdollisesti liittyvistä riskeistä ja haitoista.\n\n\n\nAudit mittari on tulossa sovelluksen seuraavassa versiossa'
+            ## title: 'INFO'
+            text_size: self.size
+            text_font: 'Arial'
+            font_size: '20dp'
         Button:
             text: 'S U L J E'
             on_release: root.dismiss()

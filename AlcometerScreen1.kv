@@ -1,4 +1,6 @@
 <AlkometriEka>:
+    dropdown: dropdown.__self__
+    dropdwn: dropdwn.__self__
     name: 'alko'
     Widget:
         canvas:
@@ -157,6 +159,16 @@
                             size_hint_y: None
                             on_release: dropdown.select('10')
                             on_release: root.hours(10)
+                        Button:
+                            text: '11'
+                            size_hint_y: None
+                            on_release: dropdown.select('11')
+                            on_release: root.hours(11)
+                        Button:
+                            text: '12'
+                            size_hint_y: None
+                            on_release: dropdown.select('12')
+                            on_release: root.hours(12)
                     Label:
                         text: 'tuntia sitten'
                         font_size: '20dp'
@@ -244,14 +256,48 @@
                         Button:
                             text: '90'
                             size_hint_y: None
-                            on_release: dropdown2.select('90')
+                            on_release: dropdwn.select('90')
                             on_release: root.weight(90)
-
                         Button:
                             text: '95'
                             size_hint_y: None
-                            on_release: dropdown2.select('95')
+                            on_release: dropdwn.select('95')
                             on_release: root.weight(95)
+                        Button:
+                            text: '100'
+                            size_hint_y: None
+                            on_release: dropdwn.select('100')
+                            on_release: root.weight(100)
+                        Button:
+                            text: '105'
+                            size_hint_y: None
+                            on_release: dropdwn.select('105')
+                            on_release: root.weight(105)
+                        Button:
+                            text: '110'
+                            size_hint_y: None
+                            on_release: dropdwn.select('110')
+                            on_release: root.weight(110)
+                        Button:
+                            text: '115'
+                            size_hint_y: None
+                            on_release: dropdwn.select('115')
+                            on_release: root.weight(115)
+                        Button:
+                            text: '120'
+                            size_hint_y: None
+                            on_release: dropdwn.select('120')
+                            on_release: root.weight(120)
+                        Button:
+                            text: '125'
+                            size_hint_y: None
+                            on_release: dropdwn.select('125')
+                            on_release: root.weight(125)
+                        Button:
+                            text: '130'
+                            size_hint_y: None
+                            on_release: dropdwn.select('130')
+                            on_release: root.weight(130)
 
 
 
@@ -281,7 +327,7 @@
             Button:
                 #size_hint: .5, .5
                 id: NextButton
-                on_release: root.tulostus()
+                on_release: app.root.current = 'Drinks'
                 text: 'Täytä tiedot jatkaaksesi' if self.disabled else "Seuraava"
                 disabled: True
                 opacity: 0.1 if self.disabled else 1
